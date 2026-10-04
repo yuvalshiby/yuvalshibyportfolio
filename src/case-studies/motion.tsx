@@ -114,6 +114,7 @@ export function useHeroIntroScroll(rootRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
+    const page = root
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     let timeoutId = 0
@@ -146,15 +147,15 @@ export function useHeroIntroScroll(rootRef: RefObject<HTMLElement | null>) {
 
     function nudgeFromHero() {
       timeoutId = 0
-      if (stopped || alreadyAtTitle(root)) {
+      if (stopped || alreadyAtTitle(page)) {
         stopListening()
         return
       }
 
-      root.querySelector<HTMLElement>('section:not(.cs-hero)')?.classList.add('is-shown')
+      page.querySelector<HTMLElement>('section:not(.cs-hero)')?.classList.add('is-shown')
 
       const from = window.scrollY
-      const to = titleHintTarget(root)
+      const to = titleHintTarget(page)
       if (to <= from + 8) {
         stopListening()
         return
@@ -186,7 +187,7 @@ export function useHeroIntroScroll(rootRef: RefObject<HTMLElement | null>) {
         frame = window.requestAnimationFrame(waitUntilShown)
         return
       }
-      const mealkea = Boolean(root.querySelector('[data-theme="mealkea"]'))
+      const mealkea = Boolean(page.querySelector('[data-theme="mealkea"]'))
       timeoutId = window.setTimeout(nudgeFromHero, mealkea ? HINT_AFTER_MEALKEA_MS : HINT_AFTER_MS)
     }
 
