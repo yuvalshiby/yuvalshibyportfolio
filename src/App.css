@@ -1818,14 +1818,6 @@
   }
 
   .scroll-cue {
-    right: auto;
-    left: 50%;
-    top: auto;
-    bottom: 72px;
-    transform: translateX(-50%);
-  }
-
-  .portal.is-work .scroll-cue {
     display: none;
   }
 

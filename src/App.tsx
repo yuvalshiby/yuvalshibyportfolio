@@ -42,13 +42,15 @@ function App() {
 
   useEffect(() => {
     if (!showPortal || dive) return
+    const phone = window.matchMedia('(max-width: 800px)')
 
     function go() {
+      if (phone.matches) return
       setDive(page === 'home' ? 'in' : 'out')
     }
 
     function onWheel(event: WheelEvent) {
-      if (event.deltaY <= 28) return
+      if (phone.matches || event.deltaY <= 28) return
       event.preventDefault()
       go()
     }
