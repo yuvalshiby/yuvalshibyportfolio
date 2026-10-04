@@ -30,3 +30,4 @@ src/case-studies/media/catalog/originals/
 *.njsproj
 *.sln
 *.sw?
+.env*
