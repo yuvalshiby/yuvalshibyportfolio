@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" fill="none">
+  <defs>
+    <marker id="bj-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7a63f2"/>
+    </marker>
+  </defs>
+  <g stroke="#7a63f2" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="248" y="18" width="138" height="56" rx="8"/>
+    <rect x="402" y="18" width="118" height="56" rx="8"/>
+    <rect x="536" y="18" width="158" height="56" rx="8"/>
+    <rect x="168" y="148" width="148" height="118" rx="10"/>
+    <rect x="386" y="148" width="148" height="118" rx="10"/>
+    <rect x="604" y="148" width="148" height="118" rx="10"/>
+    <rect x="386" y="348" width="148" height="138" rx="10"/>
+    <rect x="786" y="88" width="108" height="52" rx="8"/>
+
+    <path d="M460 348 V 312"/>
+    <path d="M242 312 H 678"/>
+    <path d="M242 312 V 276" marker-end="url(#bj-arrow)"/>
+    <path d="M460 312 V 276" marker-end="url(#bj-arrow)"/>
+    <path d="M678 312 V 276" marker-end="url(#bj-arrow)"/>
+
+    <path d="M460 148 V 116"/>
+    <path d="M317 116 H 615"/>
+    <path d="M317 116 V 84" marker-end="url(#bj-arrow)"/>
+    <path d="M461 116 V 84" marker-end="url(#bj-arrow)"/>
+    <path d="M615 116 V 84" marker-end="url(#bj-arrow)"/>
+
+    <path d="M752 178 C 790 178 790 114 776 114" marker-end="url(#bj-arrow)"/>
+  </g>
+  <g fill="#3b2f78" font-family="Courier New, Courier, monospace" font-size="13" text-anchor="middle">
+    <text x="317" y="50">Edit your alarm</text>
+    <text x="461" y="50">Set an alarm</text>
+    <text x="615" y="50">Your sleeping habits</text>
+    <text x="242" y="214">Timer</text>
+    <text x="460" y="214">Alarm</text>
+    <text x="678" y="214">Token</text>
+    <text x="460" y="424">HOME PAGE</text>
+    <text x="840" y="118">Start over</text>
+  </g>
+</svg>
