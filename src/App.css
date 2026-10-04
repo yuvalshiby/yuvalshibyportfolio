@@ -40,35 +40,6 @@
   backdrop-filter: blur(12px);
 }
 
-.site-address {
-  position: absolute;
-  left: clamp(24px, 4.5vw, 64px);
-  top: 22px;
-  display: flex;
-  align-items: center;
-  height: 24px;
-  margin: 0;
-  color: #e60630;
-  font-family: Montserrat, 'Helvetica Neue', sans-serif;
-  font-size: 13px;
-  text-decoration: none;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  white-space: nowrap;
-  user-select: text;
-}
-
-.site-case .site-address {
-  top: 18px;
-  left: 76px;
-}
-
-.site-year .site-address,
-.site-about:has(.about.is-hobbies) .site-address {
-  left: 76px;
-}
-
 .nav {
   display: flex;
   align-items: center;
@@ -1764,31 +1735,14 @@
   .site-case .header,
   .site-contact .header,
   .site-year .header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
     padding: 12px 14px 0;
-    margin-bottom: -64px;
+    margin-bottom: -48px;
   }
 
   .site-case .header,
   .site-year .header,
   .site-about:has(.about.is-hobbies) .header {
     padding-left: 54px;
-  }
-
-  .site-address,
-  .site-case .site-address,
-  .site-year .site-address,
-  .site-about:has(.about.is-hobbies) .site-address {
-    position: static;
-    left: auto;
-    top: auto;
-    max-width: 100%;
-    height: auto;
-    overflow: hidden;
-    font-size: 11px;
-    text-overflow: ellipsis;
   }
 
   .nav {

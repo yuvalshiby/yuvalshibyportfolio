@@ -139,12 +139,6 @@ function App() {
       className={`site${showingHome ? ' site-home' : ''}${showingAbout ? ' site-about' : ''}${showingWork ? ' site-work' : ''}${showingCase ? ' site-case' : ''}${page === 'contact' ? ' site-contact' : ''}${page === 'year' ? ' site-year' : ''}`}
     >
       <header className="header">
-        <a
-          className="site-address"
-          href="https://yuvalshibyportfolio.vercel.app"
-        >
-          https://yuvalshibyportfolio.vercel.app
-        </a>
         <nav className="nav" aria-label="Primary">
           <button
             type="button"
