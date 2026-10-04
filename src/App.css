@@ -1739,6 +1739,16 @@
 }
 
 @media (max-width: 800px) {
+  html.home-fit:has(.site-work),
+  html.home-fit:has(.site-work) body,
+  html.home-fit:has(.site-work) #root,
+  html.home-fit:has(.site-contact),
+  html.home-fit:has(.site-contact) body,
+  html.home-fit:has(.site-contact) #root {
+    height: auto;
+    overflow: auto;
+  }
+
   .contents {
     padding: 88px 18px 64px;
   }
@@ -1746,5 +1756,342 @@
   .contents-aside,
   .contents-dots {
     display: none;
+  }
+
+  .site-home .header,
+  .site-about .header,
+  .site-work .header,
+  .site-case .header,
+  .site-contact .header,
+  .site-year .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px 14px 0;
+    margin-bottom: -64px;
+  }
+
+  .site-case .header,
+  .site-year .header,
+  .site-about:has(.about.is-hobbies) .header {
+    padding-left: 54px;
+  }
+
+  .site-address,
+  .site-case .site-address,
+  .site-year .site-address,
+  .site-about:has(.about.is-hobbies) .site-address {
+    position: static;
+    left: auto;
+    top: auto;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+
+  .nav {
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav button {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .site-home .nav button.active,
+  .site-about .nav button.active,
+  .site-work .nav button.active,
+  .site-contact .nav button.active {
+    box-shadow: 0 0 0 8px #fefefe;
+  }
+
+  .cover-frame,
+  .contact-frame {
+    width: min(100vw, calc((100dvh - 150px) * 16 / 9));
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100dvh - 150px);
+  }
+
+  .scroll-cue {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 72px;
+    transform: translateX(-50%);
+  }
+
+  .portal.is-work .scroll-cue {
+    display: none;
+  }
+
+  .footer {
+    align-items: flex-end;
+    gap: 8px 14px;
+    padding: 0 14px 12px;
+    font-size: 11px;
+  }
+
+  .site-about .footer,
+  .site-contact .footer,
+  .site-year .footer,
+  .site-case .footer {
+    position: static;
+    padding: 12px 14px 18px;
+  }
+
+  .footer-contact {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .about,
+  .about-stage {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .about-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 22px;
+    padding: 84px 18px 36px;
+    overflow: visible;
+  }
+
+  .about-portrait-wrap {
+    width: min(78%, 420px);
+    max-width: none;
+    max-height: none;
+    margin: 0 auto;
+  }
+
+  .about-portrait {
+    max-width: 100%;
+    max-height: 58dvh;
+  }
+
+  .about-bubble {
+    left: 48%;
+    top: -1%;
+    width: 58%;
+  }
+
+  .about-bubble-copy p:first-child {
+    white-space: normal;
+    font-size: 7.4cqi;
+  }
+
+  .about-bubble-copy p:last-child {
+    font-size: 5.8cqi;
+  }
+
+  .about-copy,
+  .about-contact {
+    position: static;
+    width: auto;
+    height: auto !important;
+    opacity: 1;
+    animation: none;
+  }
+
+  .about.is-hobbies .about-stage {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .about.is-hobbies .about-portrait-wrap,
+  .about.is-hobbies .about-copy,
+  .about.is-hobbies .about-contact {
+    position: absolute;
+    width: 1px;
+    height: 1px !important;
+    overflow: hidden;
+  }
+
+  .about-hobbies {
+    justify-content: flex-start;
+    gap: 22px;
+    padding: 84px 14px 24px;
+    overflow: auto;
+  }
+
+  .about-hobbies-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 12px;
+    padding: 0;
+  }
+
+  .hobby {
+    gap: 8px;
+  }
+
+  .site-contact {
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    padding: 84px 0 28px;
+  }
+
+  .contact-frame {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    transform: none;
+    overflow: visible;
+  }
+
+  .contact-art {
+    display: block;
+    width: 200%;
+    height: 250px;
+    max-width: none;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  .contact-form {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 18px 8px;
+    pointer-events: auto;
+  }
+
+  .contact-field,
+  .contact-field-name,
+  .contact-field-email,
+  .contact-field-message,
+  .contact-submit-slot {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    min-height: 46px;
+    border: 1.5px solid var(--field);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 16px;
+  }
+
+  .contact-field-message textarea {
+    min-height: 132px;
+  }
+
+  .contact-submit-slot {
+    height: 52px;
+    padding: 0;
+    background: transparent;
+  }
+
+  .contact-submit {
+    font-size: 16px;
+  }
+
+  .year-notes.is-list {
+    width: auto;
+    margin-left: 18px;
+    margin-right: 18px;
+    padding-top: 92px;
+  }
+
+  .site-work,
+  .site-work .portal,
+  .site-work .portal-work,
+  .site-work .work-gallery {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .site-work .portal-home {
+    position: absolute;
+  }
+
+  .site-work .portal-work,
+  .site-work .work-gallery {
+    position: relative;
+  }
+
+  .site-work .footer {
+    position: static;
+    padding: 12px 14px 18px;
+  }
+
+  .sort-sign {
+    position: fixed;
+    top: auto;
+    bottom: 16px;
+    left: 12px;
+    width: 42px;
+    height: 42px;
+    animation: none;
+    transform: none;
+  }
+
+  .sort-sign svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sort-sign::after {
+    animation: none;
+  }
+
+  .topic-board {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: 86px 12px 8px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 18px 8px;
+    overflow: visible;
+  }
+
+  .topic-label {
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .topic-slot {
+    width: min(112px, 36vw);
+    height: 132px;
+  }
+
+  .folder-card {
+    width: min(132px, 36vw);
   }
 }
