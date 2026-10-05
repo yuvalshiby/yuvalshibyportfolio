@@ -1709,7 +1709,14 @@
   color: #5c5c5c;
 }
 
+.home-rail {
+  display: none;
+}
+
 @media (max-width: 800px) {
+  html.home-fit:has(.site-home),
+  html.home-fit:has(.site-home) body,
+  html.home-fit:has(.site-home) #root,
   html.home-fit:has(.site-work),
   html.home-fit:has(.site-work) body,
   html.home-fit:has(.site-work) #root,
@@ -1718,6 +1725,12 @@
   html.home-fit:has(.site-contact) #root {
     height: auto;
     overflow: auto;
+  }
+
+  .site-home {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
   }
 
   .contents {
@@ -1764,26 +1777,85 @@
     box-shadow: none;
   }
 
-  .cover {
+  .site-home .portal {
+    height: auto;
+    overflow: visible;
+  }
+
+  .site-home .portal-home {
+    position: relative;
+    inset: auto;
+    height: auto;
+  }
+
+  .site-home .cover {
+    height: auto;
     overflow: hidden;
   }
 
-  .cover-frame {
-    width: 132vw;
+  .site-home .cover-frame {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 122vw;
     height: auto;
     aspect-ratio: 16 / 9;
     max-height: none;
-    top: 47%;
+    margin: 54px 0 0 50%;
+    transform: translateX(-50%);
   }
 
   .scroll-cue {
     display: none;
   }
 
+  .home-rail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 12px;
+    margin: 0;
+    padding: 18px 16px 8px;
+  }
+
+  .home-rail button {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .home-rail img {
+    display: block;
+    width: 100%;
+    height: 156px;
+    object-fit: contain;
+    object-position: center;
+    background: #fefefe;
+  }
+
+  .home-rail span {
+    color: #1b1b1b;
+    font-family: Montserrat, 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
   .site-home .footer {
-    top: min(calc(47dvh + 37.125vw + 26px), calc(100dvh - 72px));
+    position: static;
+    top: auto;
     bottom: auto;
-    padding-bottom: 0;
+    padding: 18px 22px 24px;
   }
 
   .footer {
@@ -1825,27 +1897,34 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 28px;
-    padding: 92px 22px 48px;
+    gap: 22px;
+    padding: 58px 0 40px;
     overflow: visible;
   }
 
   .about-portrait-wrap {
-    width: min(84%, 440px);
+    width: 100%;
     max-width: none;
     max-height: none;
-    margin: 8px auto 0;
+    margin: 0;
   }
 
   .about-portrait {
-    max-width: 100%;
-    max-height: 54dvh;
+    width: 100%;
+    max-width: none;
+    max-height: 68dvh;
+    object-fit: contain;
+  }
+
+  .about-copy,
+  .about-contact {
+    padding: 0 22px;
   }
 
   .about-bubble {
-    left: 68%;
-    top: -2%;
-    width: 46%;
+    left: 66%;
+    top: 0;
+    width: 32%;
     opacity: 1;
     animation: none;
   }
