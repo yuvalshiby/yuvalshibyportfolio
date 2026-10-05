@@ -1735,8 +1735,8 @@
   .site-case .header,
   .site-contact .header,
   .site-year .header {
-    padding: 12px 14px 0;
-    margin-bottom: -48px;
+    padding: max(16px, env(safe-area-inset-top)) 18px 0;
+    margin-bottom: -52px;
   }
 
   .site-case .header,
@@ -1752,34 +1752,51 @@
   }
 
   .nav button {
-    font-size: 12px;
-    letter-spacing: 0.02em;
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
 
   .site-home .nav button.active,
   .site-about .nav button.active,
   .site-work .nav button.active,
   .site-contact .nav button.active {
-    box-shadow: 0 0 0 8px #fefefe;
+    background: transparent;
+    box-shadow: none;
   }
 
-  .cover-frame,
-  .contact-frame {
-    width: min(100vw, calc((100dvh - 150px) * 16 / 9));
+  .cover {
+    overflow: hidden;
+  }
+
+  .cover-frame {
+    width: 132vw;
     height: auto;
     aspect-ratio: 16 / 9;
-    max-height: calc(100dvh - 150px);
+    max-height: none;
+    top: 47%;
   }
 
   .scroll-cue {
     display: none;
   }
 
+  .site-home .footer {
+    top: min(calc(47dvh + 37.125vw + 26px), calc(100dvh - 72px));
+    bottom: auto;
+    padding-bottom: 0;
+  }
+
   .footer {
-    align-items: flex-end;
-    gap: 8px 14px;
-    padding: 0 14px 12px;
-    font-size: 11px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 22px max(16px, env(safe-area-inset-bottom));
+    font-size: 12px;
+  }
+
+  .footer a,
+  .footer-privacy {
+    white-space: nowrap;
   }
 
   .site-about .footer,
@@ -1791,8 +1808,10 @@
   }
 
   .footer-contact {
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex-wrap: nowrap;
   }
 
   .about,
@@ -1806,27 +1825,45 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 22px;
-    padding: 84px 18px 36px;
+    gap: 28px;
+    padding: 92px 22px 48px;
     overflow: visible;
   }
 
   .about-portrait-wrap {
-    width: min(78%, 420px);
+    width: min(84%, 440px);
     max-width: none;
     max-height: none;
-    margin: 0 auto;
+    margin: 8px auto 0;
   }
 
   .about-portrait {
     max-width: 100%;
-    max-height: 58dvh;
+    max-height: 54dvh;
   }
 
   .about-bubble {
-    left: 76%;
-    top: -6%;
-    width: 44%;
+    left: 68%;
+    top: -2%;
+    width: 46%;
+    opacity: 1;
+    animation: none;
+  }
+
+  .about-copy h1 {
+    font-size: 34px;
+    margin-bottom: 14px;
+  }
+
+  .about-copy p,
+  .about-contact a {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .about-contact {
+    gap: 6px;
+    padding-top: 4px;
   }
 
   .about-bubble-copy p:first-child {
@@ -1883,7 +1920,7 @@
 
   .site-contact {
     height: auto;
-    min-height: 100dvh;
+    min-height: 0;
     overflow-x: hidden;
     overflow-y: visible;
   }
@@ -1892,9 +1929,9 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    min-height: 100dvh;
+    min-height: 0;
     overflow: visible;
-    padding: 84px 0 28px;
+    padding: 72px 0 24px;
   }
 
   .contact-frame {
@@ -1911,11 +1948,11 @@
 
   .contact-art {
     display: block;
-    width: 200%;
-    height: 250px;
+    width: 214%;
+    height: 276px;
     max-width: none;
     object-fit: cover;
-    object-position: left center;
+    object-position: left 18%;
   }
 
   .contact-form {
@@ -1923,9 +1960,34 @@
     inset: auto;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 18px 18px 8px;
+    gap: 18px;
+    padding: 22px 22px 12px;
     pointer-events: auto;
+  }
+
+  .contact-field::before {
+    display: block;
+    margin: 0 2px 6px;
+    font-family: Montserrat, 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .contact-field-name::before {
+    content: 'Name';
+    color: #4d7ee6;
+  }
+
+  .contact-field-email::before {
+    content: 'Email';
+    color: #ef6aa0;
+  }
+
+  .contact-field-message::before {
+    content: 'Message';
+    color: #74b84a;
   }
 
   .contact-field,
@@ -1994,14 +2056,16 @@
   }
 
   .sort-sign {
-    position: fixed;
-    top: auto;
-    bottom: 16px;
-    left: 12px;
-    width: 42px;
-    height: 42px;
+    position: absolute;
+    top: -46px;
+    right: 14px;
+    bottom: auto;
+    left: auto;
+    width: 34px;
+    height: 34px;
     animation: none;
     transform: none;
+    z-index: 12;
   }
 
   .sort-sign svg {
@@ -2011,6 +2075,7 @@
 
   .sort-sign::after {
     animation: none;
+    inset: -4px;
   }
 
   .topic-board {
@@ -2019,25 +2084,25 @@
     right: auto;
     bottom: auto;
     left: auto;
-    margin: 86px 12px 8px;
+    margin: 108px 18px 12px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 18px 8px;
+    gap: 28px 16px;
     overflow: visible;
   }
 
   .topic-label {
-    margin-bottom: 8px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
   }
 
   .topic-slot {
-    width: min(112px, 36vw);
-    height: 132px;
+    width: min(150px, 40vw);
+    height: 168px;
   }
 
   .folder-card {
-    width: min(132px, 36vw);
+    width: min(156px, 42vw);
   }
 }
