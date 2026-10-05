@@ -204,21 +204,6 @@ function App() {
         </div>
       ) : null}
 
-      {showingHome ? (
-        <section className="home-rail" aria-label="Work">
-          {projects.map((project) => (
-            <button
-              key={project.slug}
-              type="button"
-              onClick={() => openProject(project.slug)}
-            >
-              <img src={project.image} alt="" />
-              <span>{project.title}</span>
-            </button>
-          ))}
-        </section>
-      ) : null}
-
       {showingAbout ? <About /> : null}
 
       {page === 'contact' ? <Contact /> : null}
