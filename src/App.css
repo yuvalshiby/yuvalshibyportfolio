@@ -2027,11 +2027,12 @@
 
   .contact-art {
     display: block;
-    width: 214%;
-    height: 276px;
+    width: 200%;
+    height: 300px;
+    margin-left: -2%;
     max-width: none;
     object-fit: cover;
-    object-position: left 18%;
+    object-position: left 40%;
   }
 
   .contact-form {
