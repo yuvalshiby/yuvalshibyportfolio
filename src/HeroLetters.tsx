@@ -175,7 +175,6 @@ export function HeroLetters() {
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const inkNodes = [...root.querySelectorAll<HTMLElement>('.hero-letter-ink')]
     const start = performance.now()

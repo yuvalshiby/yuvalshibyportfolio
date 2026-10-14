@@ -1,22 +1,11 @@
 import { useEffect, useState, type RefObject } from 'react'
 
-export function usePrefersStill() {
-  const [still, setStill] = useState(false)
-
-  useEffect(() => {
-    setStill(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
-
-  return still
-}
-
 export function useLiveIndex(length: number, interval: number) {
   const [index, setIndex] = useState(0)
   const [held, setHeld] = useState(false)
 
   useEffect(() => {
     if (held || length < 2) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % length)
     }, interval)
@@ -115,7 +104,6 @@ export function useHeroIntroScroll(rootRef: RefObject<HTMLElement | null>) {
     const root = rootRef.current
     if (!root) return
     const page = root
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     let timeoutId = 0
     let frame = 0
@@ -201,12 +189,7 @@ export function useCaseMotion(rootRef: RefObject<HTMLElement | null>) {
     const root = rootRef.current
     if (!root) return
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const sections = [...root.querySelectorAll<HTMLElement>('section:not(.cs-hero)')]
-    if (reduce) {
-      sections.forEach((section) => section.classList.add('is-shown'))
-      return
-    }
 
     const reveal = () => {
       const view = window.innerHeight

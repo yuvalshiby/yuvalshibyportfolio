@@ -55,7 +55,6 @@ function HobbyStack({
 
   useEffect(() => {
     if (images.length < 2) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     let interval = 0
     const start = window.setTimeout(() => {

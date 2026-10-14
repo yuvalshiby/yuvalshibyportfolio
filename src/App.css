@@ -143,17 +143,6 @@
   opacity: 0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-letter-lead,
-  .hero-letter-stroke {
-    stroke-dashoffset: 0;
-  }
-
-  .hero-letter-finish {
-    opacity: 1;
-  }
-}
-
 .cover-mark,
 .cover-link-year,
 .cover-link-name {
@@ -221,12 +210,6 @@
   }
   50% {
     transform: translateY(-3px) scale(1.04);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cover-link {
-    animation: none;
   }
 }
 
@@ -381,13 +364,6 @@
   46%,
   100% {
     opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .year-notes-mark,
-  .year-caret {
-    animation: none;
   }
 }
 
@@ -617,31 +593,6 @@
     opacity: 1;
   }
   to {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hobby-frame img {
-    transition: none;
-  }
-
-  .about.is-hobbies .about-hobbies,
-  .about.is-hobbies .about-portrait-wrap,
-  .about.is-hobbies .about-copy,
-  .about.is-hobbies .about-contact,
-  .about.is-hobbies .about-bubble {
-    animation: none;
-  }
-
-  .about.is-hobbies .about-hobbies {
-    opacity: 1;
-  }
-
-  .about.is-hobbies .about-portrait-wrap,
-  .about.is-hobbies .about-copy,
-  .about.is-hobbies .about-contact,
-  .about.is-hobbies .about-bubble {
     opacity: 0;
   }
 }
@@ -896,12 +847,6 @@
 .contact-submit:hover .contact-submit-fill,
 .contact-submit:focus-visible .contact-submit-fill {
   clip-path: inset(0 0 0 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-submit-fill {
-    transition: none;
-  }
 }
 
 .contents {
@@ -1513,31 +1458,6 @@
   object-fit: contain;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .folder-art,
-  .folder-photo,
-  .folder-name {
-    transition: none;
-  }
-
-  .folder-card,
-  .folder-card.is-move,
-  .topic-board,
-  .scroll-cue-mouse span,
-  .sort-sign,
-  .sort-sign::after {
-    animation: none;
-    transition: none;
-  }
-
-  .portal.dive-in .portal-home,
-  .portal.dive-in .portal-work,
-  .portal.dive-out .portal-home,
-  .portal.dive-out .portal-work {
-    animation-duration: 0.01ms;
-  }
-}
-
 .work-page {
   max-width: none;
 }
@@ -1661,12 +1581,6 @@
   90%,
   100% {
     opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-loader-inner {
-    animation: none;
   }
 }
 

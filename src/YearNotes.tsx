@@ -52,20 +52,15 @@ type YearNotesProps = {
 }
 
 export function YearNotes({ onHome }: YearNotesProps) {
-  const reduced = usePrefersReducedMotion()
-  const [writing, setWriting] = useState(reduced)
-  const [titleCount, setTitleCount] = useState(reduced ? TITLE.length : 0)
+  const [writing, setWriting] = useState(false)
+  const [titleCount, setTitleCount] = useState(0)
   const [counts, setCounts] = useState<Array<number | null>>(() =>
-    facts.map((fact) => (reduced ? fact.length : null)),
+    facts.map(() => null),
   )
   const followRef = useRef(true)
   const listRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (reduced) {
-      setCounts(facts.map((fact) => fact.length))
-      return
-    }
     if (!writing) return
 
     const starts = factStarts()
@@ -91,7 +86,7 @@ export function YearNotes({ onHome }: YearNotesProps) {
 
     frame = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(frame)
-  }, [reduced, writing])
+  }, [writing])
 
   useEffect(() => {
     function onScroll() {
@@ -105,10 +100,10 @@ export function YearNotes({ onHome }: YearNotesProps) {
   const started = counts.filter((count) => count !== null).length
 
   useEffect(() => {
-    if (!writing || reduced || !followRef.current) return
+    if (!writing || !followRef.current) return
     const items = listRef.current?.querySelectorAll('li')
     items?.[items.length - 1]?.scrollIntoView({ block: 'nearest' })
-  }, [started, writing, reduced])
+  }, [started, writing])
 
   if (!writing) {
     return (
@@ -169,19 +164,4 @@ function BackHome({ onHome }: YearNotesProps) {
       </svg>
     </button>
   )
-}
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(() =>
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  )
-
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setReduced(query.matches)
-    query.addEventListener('change', update)
-    return () => query.removeEventListener('change', update)
-  }, [])
-
-  return reduced
 }

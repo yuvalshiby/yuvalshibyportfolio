@@ -38,15 +38,8 @@ const BREATH_MS = 4400
 
 function BreatherHero() {
   const [phase, setPhase] = useState<'in' | 'out'>('out')
-  const [still, setStill] = useState(false)
 
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduce) {
-      setStill(true)
-      return
-    }
-
     let current: 'in' | 'out' = 'out'
     const tick = () => {
       current = current === 'in' ? 'out' : 'in'
@@ -60,16 +53,16 @@ function BreatherHero() {
     }
   }, [])
 
-  const label = still ? 'Start breathing' : phase === 'in' ? 'Breathe in' : 'Breathe out'
+  const label = phase === 'in' ? 'Breathe in' : 'Breathe out'
 
   return (
-    <section className={`cs-hero cs-breath${phase === 'in' ? ' is-in' : ' is-out'}${still ? ' is-still' : ''}`}>
+    <section className={`cs-hero cs-breath${phase === 'in' ? ' is-in' : ' is-out'}`}>
       <div className="cs-breath-stage">
         <div className="cs-breath-ring" aria-hidden="true" />
         <div className="cs-orb" aria-hidden="true" />
       </div>
       <p className="cs-breath-label">{label}</p>
-      {still ? null : <p className="cs-breath-hint">Follow the circle</p>}
+      <p className="cs-breath-hint">Follow the circle</p>
     </section>
   )
 }

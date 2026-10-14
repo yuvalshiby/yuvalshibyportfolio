@@ -25,11 +25,9 @@ export function CaseStudyChrome({ onBack, children }: CaseStudyChromeProps) {
   useHeroIntroScroll(stageRef)
 
   useEffect(() => {
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)')
-
     function checkEnd() {
       const button = topRef.current
-      if (!button || still.matches) return
+      if (!button) return
       const reached =
         window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 88
       button.classList.toggle('is-end', reached)
@@ -83,10 +81,6 @@ export function CaseStudyNav({ onProjects }: CaseStudyNavProps) {
 
   function leave() {
     if (leaving.current) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      onProjects()
-      return
-    }
 
     const stage =
       document.querySelector<HTMLElement>('.project-case') ??

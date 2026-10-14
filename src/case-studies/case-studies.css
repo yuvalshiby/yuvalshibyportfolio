@@ -127,18 +127,6 @@
   text-transform: uppercase;
 }
 
-.cs-breath.is-still .cs-orb {
-  background: #9ad1d5;
-  transform: none;
-  transition: none;
-}
-
-.cs-breath.is-still .cs-breath-ring {
-  opacity: 0.45;
-  transform: scale(0.86);
-  transition: none;
-}
-
 .cs-hero {
   position: relative;
   min-height: 100dvh;
@@ -1036,14 +1024,6 @@
   }
   50% {
     transform: scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs-steps-live li.is-on .cs-step-mark,
-  .cs[data-theme='breather'] .cs-phone,
-  .cs[data-theme='deprogram-dark'] .cs-steps-live li.is-on .cs-step-mark {
-    animation: none;
   }
 }
 
@@ -1990,36 +1970,6 @@
 
 .cs-card-hint {
   margin: clamp(28px, 4vh, 48px) 0 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs section:not(.cs-hero),
-  .cs section.is-shown {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .cs section:not(.cs-hero) .cs-head .cs-rule,
-  .cs section:not(.cs-hero) .cs-head .cs-rule::after,
-  .cs section.is-shown .cs-head .cs-rule,
-  .cs section.is-shown .cs-head .cs-rule::after {
-    transform: none;
-    transition: none;
-  }
-
-  .cs-hero-media,
-  .cs-hero-stack,
-  .cs-breath-stage {
-    transform: none;
-  }
-
-  .cs-ask-line,
-  .cat-page,
-  .cs-reel-stage,
-  .cs-arrow-top.is-end {
-    animation: none;
-  }
 }
 
 @font-face {

@@ -235,14 +235,7 @@ export function WorkGallery({ projects, onOpen }: WorkGalleryProps) {
 
   function toggleView() {
     const next = view === 'topics' ? 'scatter' : 'topics'
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     window.clearTimeout(settleTimer.current)
-    if (reduce) {
-      setView(next)
-      setPoseMode('live')
-      if (next === 'topics') setTargets(topicPose())
-      return
-    }
     lockedRef.current = currentPose()
     setPoseMode('locked')
     setView(next)
